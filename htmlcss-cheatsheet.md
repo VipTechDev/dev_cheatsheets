@@ -1,4 +1,4 @@
-// 👉 HTML Structure
+```// 👉 HTML Structure
 <!DOCTYPE html> // Declares HTML5 document
 <html lang="en"> // Root element with language
 <head> // Metadata and links
@@ -58,4 +58,5 @@ code {
   background-color: #eee; // Inline code styling
   padding: 0.2em 0.4em;
   border-radius: 4px;
+
 }
