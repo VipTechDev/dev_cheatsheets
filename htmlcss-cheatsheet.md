@@ -1,4 +1,5 @@
-```// 👉 HTML Structure
+```
+// 👉 HTML Structure
 <!DOCTYPE html> // Declares HTML5 document
 <html lang="en"> // Root element with language
 <head> // Metadata and links
@@ -60,3 +61,4 @@ code {
   border-radius: 4px;
 
 }
+
