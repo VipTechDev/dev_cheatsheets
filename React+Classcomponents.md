@@ -1,3 +1,4 @@
+```
 // 👉 Vite Setup
 npm create vite@latest // Create a new React project using Vite
 
