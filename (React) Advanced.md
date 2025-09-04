@@ -1,0 +1,78 @@
+🔁 useState() — Managing Component State The useState hook lets you declare and update local state inside function components. You can store strings, numbers, arrays, objects, or booleans.
+jsx import React, { useState } from 'react';
+function SideEffect() { const [empId, setEmpId] = useState(100); return <p>{empId}</p>; } `
+✅ Use this to track dynamic values like form inputs, toggles, or counters.
+
+⚡ useEffect() — Handling Side Effects useEffect runs code after the component renders. Perfect for fetching data, setting up subscriptions, or triggering animations.
+jsx useEffect(() => { fetch('https://api.npoint.io/d542b9ad99f501ab3dbf') .then(res => res.json()) .then(data => setFoods(data)) .catch(err => console.error(err)); }, []); 
+✅ The empty array [] ensures this runs only once when the component mounts.
+
+🧩 Custom Hooks — Reusable Logic Custom hooks let you extract and reuse stateful logic across components.
+UseToggle.jsx `jsx import { useState } from "react";
+function UseToggle(initialValue = false) { const [value, setValue] = useState(initialValue); const toggle = () => setValue(!value); return [value, toggle]; } export default UseToggle; `
+ToggleButton.jsx `jsx import UseToggle from './UseToggle';
+function ToggleButton() { const [isToggled, toggle] = UseToggle(false); return <button onClick={toggle}>{isToggled ? 'ON' : 'OFF'}</button>; } `
+✅ Great for toggles, modals, or any binary state.
+
+🌐 Fetch API — Basic Data Retrieval Use the browser-native fetch() to get data from an API.
+js fetch('https://jsonplaceholder.typicode.com/posts') .then(res => res.json()) .then(data => console.log(data)) .catch(err => console.error(err)); 
+✅ Simple and built-in, but lacks advanced features like interceptors.
+
+🚀 Axios — Enhanced API Requests Axios is a promise-based HTTP client with cleaner syntax and better error handling.
+js import axios from 'axios';
+axios.get('https://jsonplaceholder.typicode.com/posts') .then(res => console.log(res.data)) .catch(err => console.error(err)); `
+✅ Supports request cancellation, interceptors, and automatic JSON parsing.
+
+✍️ onChange — Tracking Input Changes Use onChange to update state as the user types.
+jsx function FormData() { const [empName, setEmpName] = useState('');
+const handleChange = (e) => setEmpName(e.target.value); const handleSubmit = (e) => { e.preventDefault(); console.log('Form submitted:', empName); };
+return ( <form onSubmit={handleSubmit}> <input type="text" value={empName} onChange={handleChange} /> <button type="submit">Submit</button> </form> ); } `
+✅ Essential for controlled components and form validation.
+
+🧰 Redux Toolkit — Simplified State Management Install Redux Toolkit to streamline Redux setup:
+bash npm install @reduxjs/toolkit 
+✅ Includes built-in reducers, dev tools integration, and async logic via createAsyncThunk.
+
+## 📘 Glossary: Redux, Hooks, and Form Management in React
+
+Welcome! This glossary complements your advanced React cheat sheet by defining key terms related to Redux Toolkit, hooks, form handling, and API integration. It’s alphabetized for quick lookup and designed to support modular learning and remixable workflows.
+
+| Term                      | Definition                                                                                                                                         |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Action creator           | A function that returns an action object with a `type` and optionally a `payload`, describing what should happen in the Redux store.              |
+| Actions in Redux         | Payloads of information sent to the Redux store to describe events or changes in the application.                                                  |
+| Application state        | The global state object that holds all data relevant to the app’s behavior and UI.                                                                |
+| Asynchronous code        | Code that runs in parallel, allowing operations like API calls to complete without blocking other tasks.                                          |
+| Axios                    | A promise-based HTTP client for the browser and Node.js, offering cleaner syntax and advanced features like interceptors.                         |
+| combineReducers()        | A Redux function that merges multiple slice reducers into a single root reducer.                                                                  |
+| configureStore()         | A Redux Toolkit function that sets up the store with sensible defaults, including middleware and dev tools.                                       |
+| Controlled component     | A form component whose input value is managed by React state, ensuring predictable behavior and validation.                                       |
+| createSlice()            | A Redux Toolkit function that defines a slice of state with reducers and actions in one place.                                                    |
+| Custom hook              | A reusable function composed of one or more hooks, abstracting logic for cleaner components.                                                      |
+| fetch                    | A browser-native API for making HTTP requests, commonly used for retrieving JSON data from servers.                                               |
+| Fields                   | Interactive areas in a form where users input or modify data.                                                                                     |
+| Forms                    | HTML structures that collect user input and trigger submission logic.                                                                            |
+| getState()               | A Redux store method that returns the current state tree.                                                                                         |
+| Hook                     | A React function (like `useState` or `useEffect`) that enables stateful logic in function components.                                             |
+| Payload property         | Optional data included in an action object to inform reducers how to update the state.                                                            |
+| Reducers in Redux        | Pure functions that take the current state and an action, then return the new state.                                                              |
+| Redux                    | A state management library that centralizes application state and enables predictable updates via actions and reducers.                          |
+| Redux Saga               | A middleware for handling complex async flows using generator functions and declarative effects.                                                  |
+| Redux store              | The centralized container for application state, created via `configureStore()` or `createStore()`.                                               |
+| Redux Thunk              | A middleware that allows action creators to return functions for async logic, such as API calls.                                                  |
+| Redux Toolkit (RTK)      | The official, opinionated Redux wrapper that simplifies setup and encourages best practices.                                                      |
+| Side effects             | Operations like data fetching or DOM manipulation that occur outside the normal rendering flow, often handled with `useEffect`.                   |
+| Slice                    | A modular section of Redux state defined using `createSlice()`, including its own reducer and actions.                                            |
+| Store in RTK             | The complete Redux state tree composed of multiple slices, managed via `configureStore()`.                                                        |
+| Subscription             | A mechanism that allows components to listen for changes in the Redux store and update accordingly.                                               |
+| Synchronous code         | Code that executes sequentially, with each operation waiting for the previous one to finish.                                                      |
+| Type property            | A string identifier in an action object that tells reducers what kind of update to perform.                                                       |
+| Uncontrolled component   | A form component where the browser manages the input state, and React only reads the value when needed.                                           |
+| useContext hook          | A hook that provides access to context values and updates when the context changes.                                                               |
+| useEffect hook           | A hook for managing side effects like data fetching, subscriptions, or DOM updates.                                                               |
+| useReducer hook          | A hook for managing complex state logic, often used as a local alternative to Redux.                                                              |
+| useState hook            | A hook that adds local state to function components, triggering re-renders when updated.                                                          |
+
+---
+
+Feel free to remix this glossary into your questboard flow or modular learning toolkit!
