@@ -1,3 +1,4 @@
+```
 🔁 useState() — Managing Component State The useState hook lets you declare and update local state inside function components. You can store strings, numbers, arrays, objects, or booleans.
 jsx import React, { useState } from 'react';
 function SideEffect() { const [empId, setEmpId] = useState(100); return <p>{empId}</p>; } `
