@@ -351,5 +351,3 @@ Welcome! This alphabetized glossary includes key terms used throughout the cheat
 | Virtual DOM                | An in-memory representation of the real DOM, kept in sync by React’s reconciliation process.                                                    |
 
 ---
-
-Feel free to remix or extend this glossary as your toolkit evolves!
